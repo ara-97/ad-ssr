@@ -27,36 +27,29 @@ module.exports = {
             path.resolve("./src"),
             "node_modules",
         ],
-        extensions: ['.js', '.jsx'],
     },
     module: {
         rules: [
             {
                 test: /\.jsx?$/,
                 exclude: /(node_modules|bower_components)/,
-                include: [
-                    path.resolve(__dirname, './src'),
-                ],
-                query: {
-                    cacheDirectory: true,
-                    presets: ["@babel/preset-env", "@babel/preset-react"]
-                },
-                loader: "babel-loader",
+                use: "babel-loader",
             },
             {
-                test: /\.css$/,
-                loader: ["style-loader", "css-loader"]
+                test: /\.(css)$/,
+                use: ['style-loader', 'css-loader'],
+
             },
             {
-                test: /\.(png|jpg|jpeg|gif|svg)$/,
+                test: /\.(png|jpe?g|gif|svg)$/,
                 use: [
                     {
                         loader: 'file-loader',
                         options: {
-                            limit: 10000
-                        }
+                            name: '[path][name].[ext]',
+                        },
                     },
-                ]
+                ],
             },
         ],
     },

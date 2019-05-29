@@ -15,7 +15,7 @@ class Layout extends React.Component {
 
     render() {
         return (
-            <>
+            <div>
                 <Helmet
                     title={data.site.siteMetadata.title}
                     link={[
@@ -30,7 +30,7 @@ class Layout extends React.Component {
                         {routes.map(route => <Route key={route.path} {...route} />)}
                     </Switch>
                 </div>
-            </>
+            </div>
         );
     }
 }
