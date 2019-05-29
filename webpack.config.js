@@ -31,9 +31,15 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.jsx?$/,
+                test: /\.(jsx|js)$/,
                 exclude: /(node_modules|bower_components)/,
-                use: "babel-loader",
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                      presets: ['@babel/preset-env'],
+                      plugins: ['@babel/plugin-transform-runtime', '@babel/plugin-proposal-object-rest-spread']
+                    }
+                  }
             },
             {
                 test: /\.(css)$/,
@@ -54,6 +60,11 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, "dist"),
         filename: "[name].bundle.js",
+    },
+    performance: {
+        hints: false,
+        maxEntrypointSize: 400000,
+        maxAssetSize: 100000
     },
     plugins,
 };

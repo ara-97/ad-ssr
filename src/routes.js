@@ -1,10 +1,10 @@
-import Index from "./components/Index";
+import HomePage from "./components/HomePage";
 import About from "./components/About";
 
 export default [
     {
         path: "/",
-        component: Index,
+        component: HomePage,
         exact: true,
     },
     {

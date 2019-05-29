@@ -304,7 +304,7 @@ const HeroReminderGroup = styled.div`
 
 
 
-export default class IndexPage extends Component {
+export default class HomePage extends Component {
   constructor(props) {
     super(props);
     this.firstItem = React.createRef()
